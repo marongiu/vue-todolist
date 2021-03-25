@@ -25,19 +25,15 @@ var app = new Vue ({
         // creo un nuovo oggetto da pushare in todositem
         let newitem = {
             // this.text è il value dell'input
-          item: this.text
+          item: this.text,
+          status: 'todo'
         }
         // lo pusho in todositem
         this.todositem.push(newitem)
         // dopo averlo pushato reimposto il valore come default ''
         this.text = ''
-        console.log(this.todositem);
+        console.log(this.todositem.status);
       }
-    },
-
-    // al click devo selezionare item e cancellarlo attribuendogli la classe
-    done: function () {
-      console.log(this.todositem.status);
     }
   }
 
