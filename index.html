@@ -22,16 +22,17 @@
       </div>
       <div class="todolista">
         <ul>
-          <li v-for="(lista, i) in sort">
+          <li v-for="lista in sort">
             <!-- Se lista.status ha lo status check allora gli attribuisco il valore complete -->
             <span :class="(lista.status == 'check') ? 'complete' : ''">
               {{ lista.item }}
             </span>
             <!-- Se la lista ha lo status todo visualizzo altrimenti no -->
             <span v-if="lista.status == 'todo' ">
-              <i class="far fa-check-circle check"  @click="done(i)"></i>
+              <i class="far fa-check-circle check"  @click="done(lista)"></i>
               <i class="fas fa-pencil-alt edit"></i>
             </span>
+            <i v-if="lista.status == 'check'" class="fas fa-trash edit" @click="remove(lista)"></i>
           </li>
         </ul>
       </div>

@@ -33,7 +33,7 @@ var app = new Vue ({
       if (this.text.length >= 1) {
         // creo un nuovo oggetto da pushare in todositem
         let newitem = {
-            // this.text è il value dell'input
+          // this.text è il value dell'input
           item: this.text,
           status: 'todo'
         }
@@ -44,9 +44,13 @@ var app = new Vue ({
         console.log(this.todositem.status);
       }
     },
-    done: function (i) {
-      this.sort[i].status = 'check';
-      console.log(i);
+    done: function (lista) {
+      let index = this.todositem.indexOf(lista)
+      this.todositem[index].status = 'check';
+    },
+    remove: function (lista) {
+      let index = this.todositem.indexOf(lista)
+      this.todositem.splice(index,1)
     }
   }
 
