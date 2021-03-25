@@ -16,7 +16,16 @@ var app = new Vue ({
         item: "Finire esercizio di Boolean",
         status: 'todo'
       }
-    ]
+    ],
+  },
+  // filtro array
+  computed: {
+    sort: function () {
+      let statusCheck = this.todositem.filter((todo) => {todo.status == 'check'});
+      let statusTodo = this.todositem.filter((todo) => {todo.status == 'todo'});
+
+      return [...statusCheck, ...statusTodo];
+    }
   },
   methods: {
     add: function () {
@@ -34,6 +43,9 @@ var app = new Vue ({
         this.text = ''
         console.log(this.todositem.status);
       }
+    },
+    done: function (i) {
+      this.todositem[i].status = 'check';
     }
   }
 
