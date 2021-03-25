@@ -9,7 +9,7 @@ var app = new Vue ({
       },
       {
         item: "Portare il cane fuori",
-        status: 'check'
+        status: 'todo'
       },
       {
         item: "Finire esercizio di Boolean",
@@ -45,7 +45,8 @@ var app = new Vue ({
       }
     },
     done: function (i) {
-      this.todositem[i].status = 'check';
+      this.sort[i].status = 'check';
+      console.log(i);
     }
   }
 
