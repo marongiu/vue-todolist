@@ -2,7 +2,6 @@ var app = new Vue ({
   el: '#root',
   data: {
     text: '', // valore input
-    complete: '',
     todositem: [ // array todo esempi
       {
         item: "Fare spesa",
@@ -21,10 +20,11 @@ var app = new Vue ({
   // filtro array
   computed: {
     sort: function () {
-      let statusCheck = this.todositem.filter((todo) => {todo.status == 'check'});
-      let statusTodo = this.todositem.filter((todo) => {todo.status == 'todo'});
+      let statusCheck = this.todositem.filter((todo) => todo.status == 'check');
+      let statusTodo = this.todositem.filter((todo) => todo.status == 'todo');
 
-      return [...statusCheck, ...statusTodo];
+      return [...statusTodo, ...statusCheck];
+
     }
   },
   methods: {
