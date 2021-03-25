@@ -17,15 +17,15 @@
         <span id="wrong">Devi inserire qualcosa nella lista</span>
       </div>
       <div class="titlelist">
-        <input id="addlist" type="text" name="add" value="" placeholder= "  Inserisci un elemento nella lista:">
+        <input id="addlist" type="text" placeholder= "  Inserisci un elemento nella lista:" >
         <span id="add"><i class="fas fa-plus"></i></span>
       </div>
 
       <div class="todolista">
         <ul>
-          <li>
+          <li v-for="lista in todoitem">
             <span>
-              FARE LA SPESA
+              {{ lista.item }}
             </span>
             <span>
               <i class="far fa-check-circle check"></i>
@@ -38,6 +38,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="./assets/main.js" charset="utf-8"></script>
+  <script src="./assets/js/main.js" charset="utf-8"></script>
 </body>
 </html>
