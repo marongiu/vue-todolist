@@ -17,13 +17,13 @@
         <span id="wrong">Devi inserire qualcosa nella lista</span>
       </div>
       <div class="titlelist">
-        <input id="addlist" type="text" placeholder= "  Inserisci un elemento nella lista:" >
-        <span id="add"><i class="fas fa-plus"></i></span>
+        <input id="addlist" type="text" placeholder= "  Inserisci un elemento nella lista:" v-model="text" @keyup.enter="add">
+        <span @click="add" id="add"><i class="fas fa-plus"></i></span>
       </div>
 
       <div class="todolista">
         <ul>
-          <li v-for="lista in todoitem">
+          <li v-for="lista in todositem">
             <span>
               {{ lista.item }}
             </span>
