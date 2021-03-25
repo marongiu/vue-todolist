@@ -23,12 +23,13 @@
 
       <div class="todolista">
         <ul>
-          <li v-for="lista in todositem">
-            <span>
+          <li v-for="(lista, i) in todositem">
+            <span :class="complete">
               {{ lista.item }}
             </span>
-            <span>
-              <i class="far fa-check-circle check"></i>
+            <!-- Se la lista ha lo status todo visualizzo altrimenti no -->
+            <span v-if="lista.status == 'todo' ">
+              <i class="far fa-check-circle check" @click="done" ></i>
               <i class="fas fa-pencil-alt edit"></i>
             </span>
           </li>

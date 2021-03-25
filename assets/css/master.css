@@ -122,3 +122,7 @@ ul li {
   margin-top: 50px;
   font-size: 20px;
 }
+
+.complete {
+  text-decoration: line-through;
+}

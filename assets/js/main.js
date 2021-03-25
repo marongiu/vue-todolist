@@ -2,15 +2,19 @@ var app = new Vue ({
   el: '#root',
   data: {
     text: '', // valore input
+    complete: '',
     todositem: [ // array todo esempi
       {
-        item: "Fare spesa"
+        item: "Fare spesa",
+        status: 'todo'
       },
       {
-        item: "Portare il cane fuori"
+        item: "Portare il cane fuori",
+        status: 'check'
       },
       {
-        item: "Finire esercizio di Boolean"
+        item: "Finire esercizio di Boolean",
+        status: 'todo'
       }
     ]
   },
@@ -27,7 +31,13 @@ var app = new Vue ({
         this.todositem.push(newitem)
         // dopo averlo pushato reimposto il valore come default ''
         this.text = ''
+        console.log(this.todositem);
       }
+    },
+
+    // al click devo selezionare item e cancellarlo attribuendogli la classe
+    done: function () {
+      console.log(this.todositem.status);
     }
   }
 
