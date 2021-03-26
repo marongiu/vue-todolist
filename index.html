@@ -10,7 +10,7 @@
 </head>
 <body>
   <div id="root">
-    <div class="todo mt-50">
+    <div class="todo mt-50 scroll">
       <div class="title">
         <h1>To-do list</h1>
         <span id="currentDate"></span>
@@ -30,9 +30,9 @@
             <!-- Se la lista ha lo status todo visualizzo altrimenti no -->
             <span v-if="lista.status == 'todo' ">
               <i class="far fa-check-circle check"  @click="done(lista)"></i>
-              <i class="fas fa-pencil-alt edit"></i>
+              <i class="fas fa-pencil-alt edit" @click="edit(lista)"></i>
             </span>
-            <i v-if="lista.status == 'check'" class="fas fa-trash edit" @click="remove(lista)"></i>
+            <i v-if="lista.status == 'check'" class="fas fa-trash remove" @click="remove(lista)"></i>
           </li>
         </ul>
       </div>
