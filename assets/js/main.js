@@ -2,8 +2,6 @@ var app = new Vue ({
   el: '#root',
   data: {
     text: '', // valore input
-    modifica: false,
-    indexEdit: '',
     todositem: [ // array todo esempi
       {
         item: "Fare spesa",
@@ -31,25 +29,19 @@ var app = new Vue ({
   },
   methods: {
     add: function () {
-      if (modifica) {
-        this.todositem[indexEdit].item = this.text
-        modifica = false;
-        this.text = ''
-      } else {
-        // se oggetto che vado ad inserire a una lunghezza maggiore ad 1
-        if (this.text.length >= 1) {
-          // creo un nuovo oggetto da pushare in todositem
-          let newitem = {
-            // this.text è il value dell'input
-            item: this.text,
-            status: 'todo'
-          }
-          // lo pusho in todositem
-          this.todositem.push(newitem)
-          // dopo averlo pushato reimposto il valore come default ''
-          this.text = ''
-          console.log(this.todositem.status);
+      // se oggetto che vado ad inserire a una lunghezza maggiore ad 1
+      if (this.text.length >= 1) {
+        // creo un nuovo oggetto da pushare in todositem
+        let newitem = {
+          // this.text è il value dell'input
+          item: this.text,
+          status: 'todo'
         }
+        // lo pusho in todositem
+        this.todositem.push(newitem)
+        // dopo averlo pushato reimposto il valore come default ''
+        this.text = ''
+        console.log(this.todositem.status);
       }
     },
     done: function (lista) {
@@ -59,12 +51,6 @@ var app = new Vue ({
     remove: function (lista) {
       let index = this.todositem.indexOf(lista)
       this.todositem.splice(index,1)
-    },
-
-    edit: function (lista) {
-      modifica = true;
-      indexEdit = this.todositem.indexOf(lista)
-      this.text = lista.item
     }
   }
 
